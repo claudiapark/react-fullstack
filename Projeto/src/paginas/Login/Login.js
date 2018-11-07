@@ -29,6 +29,7 @@ class Login extends Component {
     this.props.logaUsuario(dados)
 
     this.props.history.push('/')
+
   }
 
   habilitaOuDesabilitaBotao = () => {
