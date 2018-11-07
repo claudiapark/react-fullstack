@@ -19,16 +19,14 @@ function App(props) {
 
   return (
     <div className="app">
-      <Navbar usuario={usuario} deslogaUsuario={deslogaUsuario} />
+      <Navbar/>
 
       <Switch>
         <Route path="/" exact render={() => {
           return usuario ? <Home /> : <Redirect to="/login" />
         }} />
 
-        <Route path="/login" render={(props) => {
-          return <Login historico={props.history} logaUsuario={logaUsuario} />
-        }}/>
+        <Route path="/login" render={(props)=> <Login {...props} />}/>
         
         <Route path="/conta" component={Conta}/>
         <Route path="/quem-somos" component={QuemSomos} />
@@ -52,14 +50,6 @@ function passaDadosDoEstadoParaMeuComponente(state) {
 
 function passaFuncoesQueDisparamAcoesViaProps(dispatch) {
  const props = {
-  logaUsuario: (dados) => {
-    const acao = {
-      type: 'LOGA_USUARIO',
-      dados: dados
-    }
-
-    dispatch(acao)
-  },
   deslogaUsuario: () => {
     const acao = {
       type: 'DESLOGA_USUARIO'

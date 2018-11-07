@@ -3,6 +3,7 @@ import Link from '../../componentes/Link/Link'
 import Botao from '../../componentes/Botao/Botao'
 import Legenda from '../../componentes/Legenda/Legenda'
 import Campo from '../../componentes/Campo/Campo'
+import { connect } from 'react-redux'
 import './Login.css'
 
 class Login extends Component {
@@ -27,7 +28,7 @@ class Login extends Component {
 
     this.props.logaUsuario(dados)
 
-    this.props.historico.push('/')
+    this.props.history.push('/')
   }
 
   habilitaOuDesabilitaBotao = () => {
@@ -65,4 +66,20 @@ class Login extends Component {
   }
 }
 
-export default Login
+// historico={props.history} logaUsuario={logaUsuario} />
+function mapeiaDispatchParaOComponente(Dispatch){
+  const despache = {
+         logaUsuario: (dados) => {
+          const acao = {
+            type: 'LOGA_USUARIO',
+            dados: dados
+      }
+      Dispatch(acao)
+    }
+  }
+  return despache 
+}
+
+const loginConectado = connect(null, mapeiaDispatchParaOComponente)
+
+export default loginConectado(Login)
