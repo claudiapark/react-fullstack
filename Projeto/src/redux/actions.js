@@ -10,3 +10,10 @@ export function deslogaUsuario() {
     type: 'DESLOGA_USUARIO'
   }
 }
+
+export function cadastraPostits(dados) {
+  return{
+    type: 'CADASTRA_POSTIT',
+    dados 
+  }
+}
