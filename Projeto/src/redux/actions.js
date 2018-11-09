@@ -11,9 +11,25 @@ export function deslogaUsuario() {
   }
 }
 
-export function cadastraPostits(dados) {
-  return{
+export function cadastraPostit(dados) {
+  return {
     type: 'CADASTRA_POSTIT',
-    dados 
+    dados
   }
 }
+
+export function alteraPostit(dados) {
+  return {
+    type: 'ALTERA_POSTIT',
+    dados
+  }
+}
+
+export function removePostit(id) {
+  return {
+    type: 'REMOVE_POSTIT',
+    id
+  }
+}
+
+
