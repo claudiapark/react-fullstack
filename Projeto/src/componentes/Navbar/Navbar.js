@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { deslogaUsuario } from '../../redux/actions'
 import { Link, withRouter } from 'react-router-dom'
+import { deslogaUsuario} from '../../redux/actions'
 import Menu from '../Menu/Menu'
 import logo from './logo.png'
 import './Navbar.css'

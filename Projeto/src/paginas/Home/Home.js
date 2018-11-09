@@ -38,6 +38,8 @@ class Home extends Component {
     )
   }
 }
+}
+
 
 export default connect(
   (state) => ({ usuario: state.usuario, postits: state.postits })
