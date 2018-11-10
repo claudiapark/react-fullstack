@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { cadastraPostit, alteraPostit, removePostit } from '../../redux/actions'
+import { MdDelete } from 'react-icons/md'
 import { connect } from 'react-redux'
 import './Postits.css'
 
@@ -18,7 +19,7 @@ class Postit extends Component {
     if (cadastrando) {
     
     const dados = {
-      id: `aa2b3293-9fb0-41b5-a97f-3d238615604${Math.random(100)}`,
+    
       titulo: form.titulo.value,
       texto: form.texto.value
     }
@@ -54,8 +55,7 @@ removePostit = (evento) => {
        {
          !cadastrando && this.state.editando && (
           <button  className="postit__botao-remover" type="button" onClick={this.removePostit}>
-           
-          x
+           <MdDelete/>
           </button>
          )
         }
